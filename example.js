@@ -16,9 +16,9 @@ var i = 0
 setInterval(function() {
   dataCards.write({
     title: 'this is title ' + i,
-    description: 'weeeee a description',
+    description: 'this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool ',
     someField: 'this is a field',
-    another: 'huh'
+    another: '123123'
   })
   i++
 }, 1000)
