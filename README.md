@@ -16,7 +16,9 @@ Mostly this is an experiment. Expect it to be rewritten, redesigned, destroyed, 
 
 **options**
 
-- `titleField` – _optional_ – default: `title`
+- `titleField`
+  - _optional_
+  - default: `title`
 
 Any options you can pass to the [view-list](https://github.com/shama/view-list) and [virtual-dom](https://github.com/Matt-Esch/virtual-dom) modules.
 
