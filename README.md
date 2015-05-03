@@ -17,7 +17,8 @@ Mostly this is an experiment. Expect it to be rewritten, redesigned, destroyed, 
 **options**
 
 - `titleField` – _optional_ – default: `title`
-- `descriptionField` – _optional_ – default: `description`
+
+Any options you can pass to the [view-list](https://github.com/shama/view-list) and [virtual-dom](https://github.com/Matt-Esch/virtual-dom) modules.
 
 ### `cards.render([data])`
 
@@ -29,7 +30,6 @@ Mostly this is an experiment. Expect it to be rewritten, redesigned, destroyed, 
 <ul class="data-card-list">
   <li class="data-card">
     <h2 class="data-card-title">Example</h2>
-    <p class="data-card-description">This is a field in the row that describes the data.</p>
     <ul class="data-card-fields">
       <li class="data-card-field [fieldname]">
         <span class="field-key">[fieldname]:</span> 
