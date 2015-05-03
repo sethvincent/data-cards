@@ -1,0 +1,27 @@
+{
+  "name": "data-cards",
+  "description": "",
+  "version": "0.0.0",
+  "repository": {
+    "url": "git://github.com/sethvincent/data-cards.git"
+  },
+  "main": "index.js",
+  "style": "style.css",
+  "scripts": {
+    "example": "wzrd example.js",
+    "test": "",
+    "start": ""
+  },
+  "dependencies": {
+    "extend": "^2.0.1",
+    "filter-object": "^1.1.2",
+    "view-list": "^1.3.0",
+    "virtual-dom": "^2.0.1"
+  },
+  "devDependencies": {
+    "raf": "^2.0.4",
+    "standard": "^3.7.2",
+    "tape": "^4.0.0",
+    "wzrd": "^1.2.1"
+  }
+}

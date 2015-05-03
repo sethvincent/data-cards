@@ -1,0 +1,52 @@
+.data-card-list {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  overflow: auto;
+}
+
+.data-card-list li {
+  list-style-type: none;
+}
+
+.data-card {
+  background-color: #fff;
+  border-bottom: 1px solid #aeaeae;
+  border-right: 1px solid #ccc;
+  padding: 40px 40px 30px 40px;
+  margin: 0px 0px 20px 0px;
+}
+
+.data-card-title {
+  font-weight: 600;
+  margin: 0px 0px 10px 0px;
+}
+
+.data-card-fields {
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid #efefea;
+  border-bottom: 0px;
+}
+
+.data-card-field {
+  font-size: 13px;
+  border-bottom: 1px solid #efefea;
+}
+
+.data-card-field-key {
+  font-weight: 600;
+  color: #666;
+  display: inline-block;
+  background-color: #fcfcfa;
+  padding: 3px 5px 3px 3px;
+  width: 33%;
+  text-align: right;
+}
+
+.data-card-field-value {
+  font-weight: 400;
+  color: #444;
+  display: inline-block;
+  padding: 3px 3px 3px 5px;
+}
