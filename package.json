@@ -1,5 +1,5 @@
 {
-  "name": "data-cards",
+  "name": "data-cards-example",
   "description": "",
   "version": "0.0.0",
   "repository": {
@@ -8,20 +8,17 @@
   "main": "index.js",
   "style": "style.css",
   "scripts": {
-    "example": "wzrd example.js",
-    "test": "",
-    "start": ""
+    "bundle": "browserify index.js -o bundle.js",
+    "start": "wzrd index.js:bundle.js"
   },
   "dependencies": {
-    "extend": "^2.0.1",
-    "filter-object": "^1.1.2",
-    "view-list": "^1.3.0",
-    "virtual-dom": "^2.0.1"
+    "data-cards": "^0.0.0",
+    "raf": "^2.0.4",
+    "virtual-dom": "^2.0.1",
+    "virtual-model": "^1.3.0"
   },
   "devDependencies": {
-    "raf": "^2.0.4",
-    "standard": "^3.7.2",
-    "tape": "^4.0.0",
+    "browserify": "^10.0.0",
     "wzrd": "^1.2.1"
   }
 }
