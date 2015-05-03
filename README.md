@@ -25,7 +25,7 @@ Mostly this is an experiment. Expect it to be rewritten, redesigned, destroyed, 
 
 ### Example html output:
 
-```
+```html
 <ul class="data-card-list">
   <li class="data-card">
     <h2 class="data-card-title">Example</h2>
@@ -42,7 +42,7 @@ Mostly this is an experiment. Expect it to be rewritten, redesigned, destroyed, 
 
 ### Example usage:
 
-```
+```js
 var diff = require('virtual-dom/diff')
 var patch = require('virtual-dom/patch')
 var createElement = require('virtual-dom/create-element')
