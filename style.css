@@ -13,7 +13,7 @@
   background-color: #fff;
   border-bottom: 1px solid #aeaeae;
   border-right: 1px solid #ccc;
-  padding: 40px 40px 30px 40px;
+  padding: 12px;
   margin: 0px 0px 20px 0px;
 }
 
@@ -41,7 +41,11 @@
   background-color: #fcfcfa;
   padding: 3px 5px 3px 3px;
   width: 33%;
+  height: 30px;
   text-align: right;
+  vertical-align: top;
+  line-height: 27px;
+  overflow: hidden;
 }
 
 .data-card-field-value {
@@ -49,4 +53,9 @@
   color: #444;
   display: inline-block;
   padding: 3px 3px 3px 5px;
+  overflow: hidden;
+  width: 66%;
+  height: 30px;
+  vertical-align: top;
+  line-height: 27px;
 }
