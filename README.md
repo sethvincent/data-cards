@@ -1,6 +1,6 @@
 # data-cards
 
-let's interact with data in some way other than tables/spreadsheets. 
+Let's interact with data in some way other than tables/spreadsheets. 
 
 Demo: [sethvincent.com/data-cards](http://sethvincent.com/data-cards/)
 
