@@ -26,8 +26,8 @@ Mostly this is an experiment. Expect it to be rewritten, redesigned, destroyed, 
 ### Example html output:
 
 ```
-<div class="data-card-list">
-  <div class="data-card">
+<ul class="data-card-list">
+  <li class="data-card">
     <h2 class="data-card-title">Example</h2>
     <p class="data-card-description">This is a field in the row that describes the data.</p>
     <ul class="data-card-fields">
@@ -36,7 +36,60 @@ Mostly this is an experiment. Expect it to be rewritten, redesigned, destroyed, 
         <span class="field-value">[fieldvalue]</span>
       </li>
     </ul>
-  </div>
-</div>
+  </li>
+</ul>
 ```
 
+### Example usage:
+
+```
+var diff = require('virtual-dom/diff')
+var patch = require('virtual-dom/patch')
+var createElement = require('virtual-dom/create-element')
+var raf = require('raf')
+
+var dataCards = require('./index')({
+  height: window.innerHeight - 100,
+  rowHeight: 200
+})
+
+function render () {
+  return dataCards.render()
+}
+
+var i = 0
+setInterval(function() {
+  dataCards.write({
+    title: 'this is title ' + i,
+    description: 'weeeee a description',
+    someField: 'this is a field',
+    another: 'huh'
+  })
+  i++
+}, 1000)
+
+var tree = render()
+var rootNode = createElement(tree)
+document.body.appendChild(rootNode)
+
+raf(function tick () {
+  var newTree = render()
+  var patches = diff(tree, newTree)
+  rootNode = patch(rootNode, patches)
+  tree = newTree
+  raf(tick)
+})
+```
+
+## See also
+
+- [view-list](https://github.com/shama/view-list) – this project is a thin wrapper around the view-list module
+- [virtual-dom](https://github.com/Matt-Esch/virtual-dom) – data-cards & view-list are created using the virtual-dom module
+
+## Contributing
+
+See the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+## License
+
+[MIT](LICENSE.md)
