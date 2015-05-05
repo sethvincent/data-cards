@@ -15,13 +15,15 @@
   "dependencies": {
     "extend": "^2.0.1",
     "filter-object": "^1.1.2",
-    "view-list": "^1.3.0",
+    "view-list": "git://github.com/shama/view-list.git",
     "virtual-dom": "^2.0.1"
   },
   "devDependencies": {
+    "lodash.debounce": "^3.0.3",
     "raf": "^2.0.4",
     "standard": "^3.7.2",
     "tape": "^4.0.0",
+    "through2": "^0.6.5",
     "wzrd": "^1.2.1"
   }
 }
