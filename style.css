@@ -22,19 +22,19 @@
   margin: 0px 0px 10px 0px;
 }
 
-.data-card-fields {
+.data-card-properties {
   margin: 0px;
   padding: 0px;
   border: 1px solid #efefea;
   border-bottom: 0px;
 }
 
-.data-card-field {
+.data-card-property {
   font-size: 13px;
   border-bottom: 1px solid #efefea;
 }
 
-.data-card-field-key {
+.data-card-property-key {
   font-weight: 600;
   color: #666;
   display: inline-block;
@@ -48,7 +48,7 @@
   overflow: hidden;
 }
 
-.data-card-field-value {
+.data-card-property-value {
   font-weight: 400;
   color: #444;
   display: inline-block;

@@ -8,24 +8,44 @@ module.exports = function (opts) {
   var options = extend({
     className: 'data-card-list',
     eachrow: rows,
-    titleField: 'title'
+    titleProperty: 'title',
   }, opts)
 
-  function rows (row) {
-    var title = row[options.titleField]
-    var fields = filter(row, ['*', '!'+options.titleField])
-    var fieldElements = Object.keys(fields).map(eachField)
+  // optional includeProperties option
+  // otherwise uses first 3 properties
 
-    function eachField (key, i) {
-      return h('li.data-card-field', [
-        h('span.data-card-field-key.'+key, key),
-        h('span.data-card-field-value', fields[key])
+  function rows (row) {
+    if (!row.value) row = { value: row }
+    var title = row.value[options.titleProperty]
+    var properties = filter(row.value, ['*', '!'+options.titleProperty])
+    var propertyElements = []
+
+    if (options.includeProperties) {
+      propertyElements = options.includeProperties.map(function (key) {
+        return propertyElement(key, properties)
+      })
+    }
+
+    else {
+      var i = 0
+      for (var key in properties) {
+        propertyElements.push(propertyElement(key, properties))
+      }
+    }
+
+    function propertyElement (key, properties) {
+      return h('li.data-card-property', [
+        h('span.data-card-property-key.' + key, key),
+        h('span.data-card-property-value', properties[key])
       ])
     }
 
-    return h('li.data-card', [
+    return h('li.data-card', { 
+        style: { height: options.rowHeight },
+        attributes: { 'data-key': row.key }
+      }, [
       h('h2.data-card-title', title),
-      h('ul.data-card-fields', fieldElements)
+      h('ul.data-card-properties', propertyElements)
     ])
   }
 

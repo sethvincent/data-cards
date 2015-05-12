@@ -8,7 +8,7 @@
   "main": "index.js",
   "style": "style.css",
   "scripts": {
-    "example": "wzrd example.js",
+    "example": "wzrd examples/simple.js:bundle.js",
     "test": "",
     "start": ""
   },
@@ -19,6 +19,8 @@
     "virtual-dom": "^2.0.1"
   },
   "devDependencies": {
+    "JSONStream": "^1.0.3",
+    "dat-core": "0.0.6",
     "lodash.debounce": "^3.0.3",
     "raf": "^2.0.4",
     "standard": "^3.7.2",

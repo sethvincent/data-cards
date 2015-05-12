@@ -2,7 +2,7 @@ var through = require('through2')
 var debounce = require('lodash.debounce')
 var raf = require('raf')
 
-var dataCards = require('./index')({
+var dataCards = require('../index')({
   appendTo: document.body,
   height: window.innerHeight,
   rowHeight: 200
@@ -24,10 +24,14 @@ model.on('data', function (data) {
 
 var i = 0
 setInterval(function () {
-  model.write({
-    title: 'this is title ' + i,
-    description: 'this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool ',
-    someField: 'this is a field',
-    another: '123123'
-  })
+  var row = {
+    key: i,
+    value: {
+      title: 'this is title ' + i,
+      description: 'this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool ',
+      someField: 'this is a field',
+      another: '123123'
+    }
+  }
+  model.write(row)
 }, 1000)
