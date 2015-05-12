@@ -24,7 +24,7 @@ model.on('data', function (data) {
 
 var i = 0
 setInterval(function () {
-  var row = {
+  model.write({
     key: i,
     value: {
       title: 'this is title ' + i,
@@ -32,6 +32,5 @@ setInterval(function () {
       someField: 'this is a field',
       another: '123123'
     }
-  }
-  model.write(row)
+  })
 }, 1000)
