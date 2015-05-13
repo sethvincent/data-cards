@@ -8,7 +8,7 @@
   "main": "index.js",
   "style": "style.css",
   "scripts": {
-    "example": "wzrd examples/simple.js:bundle.js",
+    "example": "budo examples/simple.js --live -- -t babelify",
     "test": "",
     "start": ""
   },
@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "JSONStream": "^1.0.3",
+    "babelify": "^6.1.0",
+    "budo": "^4.0.0",
     "dat-core": "0.0.6",
     "lodash.debounce": "^3.0.3",
     "raf": "^2.0.4",
