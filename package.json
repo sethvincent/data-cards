@@ -12,8 +12,10 @@
     "start": "wzrd index.js:bundle.js"
   },
   "dependencies": {
-    "data-cards": "^0.0.0",
+    "data-cards": "git://github.com/sethvincent/data-cards.git",
+    "lodash.debounce": "^3.0.3",
     "raf": "^2.0.4",
+    "through2": "^0.6.5",
     "virtual-dom": "^2.0.1",
     "virtual-model": "^1.3.0"
   },
