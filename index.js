@@ -11,8 +11,7 @@ module.exports = function (opts) {
     titleProperty: 'title',
   }, opts)
 
-  // optional includeProperties option
-  // otherwise uses first 3 properties
+  var list = ListView(options)
 
   function rows (row) {
     if (!row.value) row = { value: row }
@@ -34,19 +33,26 @@ module.exports = function (opts) {
     }
 
     function propertyElement (key, properties) {
-      return h('li.data-card-property', [
+      return h('li.data-card-property', {
+        onclick: function (e) {
+          list.send('click', e)
+        }
+      }, [
         h('span.data-card-property-key.' + key, key),
         h('span.data-card-property-value', properties[key])
       ])
     }
 
     return h('li.data-card', { 
-        attributes: { 'data-key': row.key }
-      }, [
+      attributes: { 'data-key': row.key },
+      onclick: function (e) {
+        list.send('click', e)
+      }
+    }, [
       h('h2.data-card-title', title),
       h('ul.data-card-properties', propertyElements)
     ])
   }
 
-  return new ViewList(options)
+  return list
 }
