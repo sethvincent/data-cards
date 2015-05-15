@@ -13,7 +13,6 @@ var render = debounce(dataCards.render.bind(dataCards), 100)
 var all = []
 var model = through.obj(function (chunk, enc, cb) {
   this.push(chunk)
-  i++
   cb()
 })
 
@@ -22,8 +21,7 @@ model.on('data', function (data) {
   render(all)
 })
 
-var i = 0
-setInterval(function () {
+for (var i=0;i<=100000;i++) {
   model.write({
     key: i,
     value: {
@@ -33,4 +31,4 @@ setInterval(function () {
       another: '123123'
     }
   })
-}, 1000)
+}

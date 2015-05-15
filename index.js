@@ -41,7 +41,6 @@ module.exports = function (opts) {
     }
 
     return h('li.data-card', { 
-        style: { height: options.rowHeight },
         attributes: { 'data-key': row.key }
       }, [
       h('h2.data-card-title', title),
