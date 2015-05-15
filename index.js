@@ -46,7 +46,7 @@ module.exports = function (opts) {
     return h('li.data-card', { 
       attributes: { 'data-key': row.key },
       onclick: function (e) {
-        list.send('click', e)
+        list.send('click', e, row)
       }
     }, [
       h('h2.data-card-title', title),

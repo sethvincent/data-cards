@@ -47,46 +47,46 @@ Any options you can pass to the [view-list](https://github.com/shama/view-list) 
 ### Example usage:
 
 ```js
-var diff = require('virtual-dom/diff')
-var patch = require('virtual-dom/patch')
-var createElement = require('virtual-dom/create-element')
+var through = require('through2')
+var debounce = require('lodash.debounce')
 var raf = require('raf')
 
-var dataCards = require('./index')({
-  height: window.innerHeight - 100,
+var dataCards = require('../index')({
+  appendTo: document.body,
+  height: window.innerHeight,
   rowHeight: 200
 })
 
-function render () {
-  return dataCards.render()
-}
+var render = debounce(dataCards.render.bind(dataCards), 100)
 
-var i = 0
-setInterval(function() {
-  dataCards.write({
-    title: 'this is title ' + i,
-    description: 'weeeee a description',
-    someField: 'this is a field',
-    another: 'huh'
-  })
-  i++
-}, 1000)
-
-var tree = render()
-var rootNode = createElement(tree)
-document.body.appendChild(rootNode)
-
-raf(function tick () {
-  var newTree = render()
-  var patches = diff(tree, newTree)
-  rootNode = patch(rootNode, patches)
-  tree = newTree
-  raf(tick)
+var all = []
+var model = through.obj(function (chunk, enc, cb) {
+  this.push(chunk)
+  cb()
 })
+
+model.on('data', function (data) {
+  all.push(data)
+  render(all)
+})
+
+for (var i=0;i<=100000;i++) {
+  model.write({
+    key: i,
+    value: {
+      title: 'this is title ' + i,
+      description: 'this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool this has long text that cuts off its cool ',
+      someField: 'this is a field',
+      another: '123123'
+    }
+  })
+}
 ```
 
 ## See also
 
+- [data-ui](https://github.com/sethvincent/data-ui) – a collection of resources & modules for building interfaces for managing data
+- [data-grid](https://github.com/sethvincent/data-grid) – a similar project except the data is in a spreadsheet-like grid
 - [view-list](https://github.com/shama/view-list) – this project is a thin wrapper around the view-list module
 - [virtual-dom](https://github.com/Matt-Esch/virtual-dom) – data-cards & view-list are created using the virtual-dom module
 
