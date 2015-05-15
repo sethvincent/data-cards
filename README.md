@@ -51,7 +51,7 @@ var through = require('through2')
 var debounce = require('lodash.debounce')
 var raf = require('raf')
 
-var dataCards = require('../index')({
+var dataCards = require('data-cards')({
   appendTo: document.body,
   height: window.innerHeight,
   rowHeight: 200
